@@ -1,0 +1,24 @@
+{
+    "name": "rumd3x/php-scheduler",
+    "description": "A simple solution for scheduling tasks in php.",
+    "type": "project",
+    "require": {
+        "dragonmantank/cron-expression": "^2.2",
+        "php": ">=7.0",
+        "nesbot/carbon": "^1.33"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Edmur Cardoso",
+            "email": "edmurcardoso@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "Rumd3x\\Scheduler\\": "src/"
+        }
+    }
+}
