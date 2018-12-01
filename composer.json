@@ -1,7 +1,7 @@
 {
     "name": "rumd3x/php-scheduler",
     "description": "A simple solution for scheduling tasks in php.",
-    "type": "project",
+    "type": "library",
     "require": {
         "dragonmantank/cron-expression": "^2.2",
         "php": ">=7.0",
