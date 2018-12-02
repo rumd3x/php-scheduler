@@ -3,14 +3,9 @@ A simple solution for scheduling tasks in php.
 
 
 ## Installation
-To install via composer add this to your composer.json
-```json
-"minimum-stability": "dev",
-"prefer-stable": true,
-```
-And then run
+To install via composer just run
 ```bash
-  composer require "rumd3x/php-scheduler:*"
+  composer require rumd3x/php-scheduler
 ```
 
 ## Usage
