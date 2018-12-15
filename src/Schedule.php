@@ -14,6 +14,11 @@ class Schedule {
     private static $lock_file = 'scheduler.lock';
     private $lock = NULL;
     private $cron = [];
+    
+    public function __destruct()
+    {
+        $this->free();
+    }
 
     public function run() {
         $valid_action = ($this->action instanceof Closure);
@@ -56,6 +61,8 @@ class Schedule {
         $this->lock = fopen('./scheduler.lock', 'r+');
  
         if(!flock($this->lock, LOCK_EX | LOCK_NB)) {
+            $now_str = Carbon::now()->format('d/m/Y H:i:s');
+            print "[$now_str]: Job {$this->name} Failed: Error Obtaining Lock\n";
             return false;
         }
 
@@ -76,6 +83,11 @@ class Schedule {
         }
         $expression = implode(' ', $parsed);
         return CronExpression::factory($expression);
+    }
+    
+    public function isDue()
+    {
+        return $this->makeCron()->isDue();
     }
 
     public static function action(Closure $call) {
