@@ -70,7 +70,7 @@ class Schedule {
     }
 
     private function free() {
-        if ($this->lock) {
+        if ($this->lock && is_resource($this->lock) && get_resource_type($this->lock) !== 'Unknown') {
             fclose($this->lock);
         }
         return $this;
